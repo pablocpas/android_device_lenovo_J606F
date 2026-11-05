@@ -1,0 +1,10 @@
+# Audio: amplificadores y su calibracion de fabrica
+/dev/aw_dev_[0-3]                                                          u:object_r:vendor_audio_amp_device:s0
+/mnt/vendor/persist/factory/audio/aw_cali\.bin                             u:object_r:vendor_persist_audio_file:s0
+
+# Particiones
+/dev/block/platform/soc/4804000\.ufshc/by-name/super                       u:object_r:super_block_device:s0
+
+# SSR
+/sys/devices/platform/soc/5ab0000\.qcom,venus/subsys[0-9]+/name            u:object_r:vendor_sysfs_ssr:s0
+/sys/devices/platform/soc/5ab0000\.qcom,venus/subsys[0-9]+/restart_level   u:object_r:vendor_sysfs_ssr_toggle:s0

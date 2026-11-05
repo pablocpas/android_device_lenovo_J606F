@@ -1,0 +1,3 @@
+# Lenovo Tab P11 (TB-J606F): solo volumen; power lo gestiona el PMIC
+key 115   VOLUME_UP
+key 114   VOLUME_DOWN

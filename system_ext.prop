@@ -1,0 +1,20 @@
+# Audio
+audio.offload.min.duration.secs=30
+
+
+# Display
+debug.sf.enable_hwc_vds=1
+
+# GPS
+persist.backup.ntpServer=0.pool.ntp.org
+
+# Media
+media.settings.xml=/vendor/etc/media_profiles_vendor.xml
+media.stagefright.thumbnail.prefer_hw_codecs=true
+ro.media.recorder-max-base-layer-fps=60
+
+# Sensors
+persist.vendor.sensors.enable.mag_filter=true
+
+# Vendor
+ro.vendor.qti.va_aosp.support=1

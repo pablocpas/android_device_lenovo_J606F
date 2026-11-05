@@ -1,0 +1,330 @@
+incluidas	832
+
+## descartadas por seccion/tipo (273)
+pro1x	ANT+	vendor/lib64/hw/com.dsi.ant@1.0-impl.so
+pro1x	CNE	vendor/app/CneApp/CneApp.apk
+pro1x	CNE	vendor/bin/cnd
+pro1x	CNE	vendor/bin/mutualex
+pro1x	CNE	vendor/etc/cne/wqeclient/ATT/ATT_profile1.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ATT/ATT_profile2.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ATT/ATT_profile3.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ATT/ATT_profile4.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ATT/ATT_profile5.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ATT/ATT_profile6.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ROW/ROW_profile1.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ROW/ROW_profile15.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ROW/ROW_profile16.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ROW/ROW_profile17.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ROW/ROW_profile18.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ROW/ROW_profile19.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ROW/ROW_profile2.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ROW/ROW_profile20.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ROW/ROW_profile21.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ROW/ROW_profile3.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ROW/ROW_profile32.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ROW/ROW_profile4.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ROW/ROW_profile5.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ROW/ROW_profile6.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/ROW/ROW_profile7.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/VZW/VZW_profile1.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/VZW/VZW_profile2.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/VZW/VZW_profile3.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/VZW/VZW_profile4.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/VZW/VZW_profile5.xml
+pro1x	CNE	vendor/etc/cne/wqeclient/VZW/VZW_profile6.xml
+pro1x	CNE	vendor/etc/cne/mwqem.conf
+pro1x	CNE	vendor/etc/cne/profileMwqem.xml
+pro1x	CNE	vendor/etc/default-permissions/com.qualcomm.qti.cne.xml
+pro1x	CNE	vendor/etc/init/cnd.rc
+pro1x	CNE	vendor/etc/init/mutualex.rc
+pro1x	CNE	vendor/lib/libxml.so
+pro1x	CNE	vendor/lib64/libcne.so
+pro1x	CNE	vendor/lib64/libcneapiclient.so
+pro1x	CNE	vendor/lib64/libcneoplookup.so
+pro1x	CNE	vendor/lib64/libcneqmiutils.so
+pro1x	CNE	vendor/lib64/libwms.so
+pro1x	CNE	vendor/lib64/libwqe.so
+pro1x	CNE	vendor/lib64/libxml.so
+pro1x	CNE	vendor/lib64/vendor.qti.data.factory@2.0.so
+pro1x	CNE	vendor/lib64/vendor.qti.data.factory@2.1.so
+pro1x	CNE	vendor/lib64/vendor.qti.data.factory@2.2.so
+pro1x	CNE	vendor/lib64/vendor.qti.data.factory@2.3.so
+pro1x	CNE	vendor/lib64/vendor.qti.data.slm@1.0.so
+pro1x	CNE	vendor/lib64/vendor.qti.hardware.data.cne.internal.api@1.0.so
+pro1x	CNE	vendor/lib64/vendor.qti.hardware.data.cne.internal.constants@1.0.so
+pro1x	CNE	vendor/lib64/vendor.qti.hardware.data.cne.internal.server@1.0.so
+pro1x	CNE	vendor/lib64/vendor.qti.hardware.data.connection@1.0.so
+pro1x	CNE	vendor/lib64/vendor.qti.hardware.data.connection@1.1.so
+pro1x	CNE	vendor/lib64/vendor.qti.hardware.data.dynamicdds@1.0.so
+pro1x	CNE	vendor/lib64/vendor.qti.hardware.data.iwlan@1.0.so
+pro1x	CNE	vendor/lib64/vendor.qti.hardware.data.latency@1.0.so
+pro1x	CNE	vendor/lib64/vendor.qti.hardware.data.lce@1.0.so
+pro1x	CNE	vendor/lib64/vendor.qti.hardware.data.qmi@1.0.so
+pro1x	CNE	vendor/lib64/vendor.qti.hardware.slmadapter@1.0.so
+pro1x	CNE	vendor/lib64/vendor.qti.latency@2.0.so
+pro1x	CNE	vendor/lib64/vendor.qti.latency@2.1.so
+pro1x	DPM	system_ext/bin/dpmd
+pro1x	DPM	system_ext/etc/dpm/dpm.conf
+pro1x	DPM	system_ext/etc/init/dpmd.rc
+pro1x	DPM	system_ext/etc/permissions/com.qti.dpmframework.xml
+pro1x	DPM	system_ext/etc/permissions/dpmapi.xml
+pro1x	DPM	system_ext/framework/com.qti.dpmframework.jar
+pro1x	DPM	system_ext/framework/dpmapi.jar
+pro1x	DPM	system_ext/lib/vendor.qti.diaghal@1.0.so
+pro1x	DPM	system_ext/lib64/com.qualcomm.qti.dpm.api@1.0.so
+pro1x	DPM	system_ext/lib64/libdpmctmgr.so
+pro1x	DPM	system_ext/lib64/libdpmfdmgr.so
+pro1x	DPM	system_ext/lib64/libdpmframework.so
+pro1x	DPM	system_ext/lib64/libdpmtcm.so
+pro1x	DPM	system_ext/lib64/vendor.qti.diaghal@1.0.so
+pro1x	DPM	system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk
+pro1x	DPM	vendor/bin/dpmQmiMgr
+pro1x	DPM	vendor/etc/init/dpmQmiMgr.rc
+pro1x	DPM	vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so
+pro1x	DPM	vendor/lib64/libdpmqmihal.so
+pro1x	ESE	vendor/bin/hw/vendor.qti.esepowermanager@1.1-service
+pro1x	ESE	vendor/etc/init/vendor.qti.esepowermanager@1.1-service.rc
+pro1x	ESE	vendor/lib64/hw/vendor.qti.esepowermanager@1.1-impl.so
+pro1x	ESE	vendor/lib64/vendor.qti.esepowermanager@1.0.so
+pro1x	ESE	vendor/lib64/vendor.qti.esepowermanager@1.1.so
+pro1x	Fingerprint	vendor/etc/init/init.mafp.rc
+pro1x	Fingerprint	vendor/lib64/hw/fingerprint.default.so
+pro1x	Fingerprint	vendor/lib64/hw/microarray.fingerprint.default.so
+pro1x	Fingerprint	vendor/lib64/libfprint-x64.so
+pro1x	Fingerprint firmware	vendor/firmware/mafp.b00
+pro1x	Fingerprint firmware	vendor/firmware/mafp.b01
+pro1x	Fingerprint firmware	vendor/firmware/mafp.b02
+pro1x	Fingerprint firmware	vendor/firmware/mafp.b03
+pro1x	Fingerprint firmware	vendor/firmware/mafp.b04
+pro1x	Fingerprint firmware	vendor/firmware/mafp.b05
+pro1x	Fingerprint firmware	vendor/firmware/mafp.b06
+pro1x	Fingerprint firmware	vendor/firmware/mafp.mbn
+pro1x	Fingerprint firmware	vendor/firmware/mafp.mdt
+pro1x	FM	system_ext/lib64/fm_helium.so
+pro1x	FM	system_ext/lib64/libfm-hci.so
+pro1x	FM	system_ext/lib64/vendor.qti.hardware.fm@1.0.so
+pro1x	FM	vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
+pro1x	GNSS	vendor/lib64/libqdma_file_agent.so	(descartado tras revisar dependencias)
+pro1x	IMS	system_ext/etc/permissions/telephony_system-ext_privapp-permissions-qti.xml
+pro1x	IMS	system_ext/etc/sysconfig/qti_whitelist_system_ext.xml
+pro1x	IMS	system_ext/framework/vendor.qti.ims.factory-V1.1-java.jar
+pro1x	IMS	system_ext/lib64/lib-imsvideocodec.so
+pro1x	IMS	system_ext/lib64/lib-imsvt.so
+pro1x	IMS	system_ext/lib64/lib-imsvtextutils.so
+pro1x	IMS	system_ext/lib64/lib-imsvtutils.so
+pro1x	IMS	system_ext/lib64/libdiag_system.so
+pro1x	IMS	system_ext/lib64/libimscamera_jni.so
+pro1x	IMS	system_ext/lib64/libimsmedia_jni.so
+pro1x	IMS	system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
+pro1x	IMS	system_ext/priv-app/ims/ims.apk
+pro1x	IMS	vendor/bin/ims_rtp_daemon
+pro1x	IMS	vendor/bin/imsdatadaemon
+pro1x	IMS	vendor/bin/imsqmidaemon
+pro1x	IMS	vendor/bin/imsrcsd
+pro1x	IMS	vendor/etc/init/ims_rtp_daemon.rc
+pro1x	IMS	vendor/etc/init/imsdatadaemon.rc
+pro1x	IMS	vendor/etc/init/imsqmidaemon.rc
+pro1x	IMS	vendor/etc/init/imsrcsd.rc
+pro1x	IMS	vendor/etc/seccomp_policy/imsrtp.policy
+pro1x	IMS	vendor/lib64/com.qualcomm.qti.imscmservice@1.0.so
+pro1x	IMS	vendor/lib64/com.qualcomm.qti.imscmservice@2.0.so
+pro1x	IMS	vendor/lib64/com.qualcomm.qti.imscmservice@2.1.so
+pro1x	IMS	vendor/lib64/com.qualcomm.qti.imscmservice@2.2.so
+pro1x	IMS	vendor/lib64/com.qualcomm.qti.uceservice@2.0.so
+pro1x	IMS	vendor/lib64/com.qualcomm.qti.uceservice@2.1.so
+pro1x	IMS	vendor/lib64/com.qualcomm.qti.uceservice@2.2.so
+pro1x	IMS	vendor/lib64/com.qualcomm.qti.uceservice@2.3.so
+pro1x	IMS	vendor/lib64/lib-imscmservice.so
+pro1x	IMS	vendor/lib64/lib-imsdpl.so
+pro1x	IMS	vendor/lib64/lib-imsqimf.so
+pro1x	IMS	vendor/lib64/lib-imsrcs-v2.so
+pro1x	IMS	vendor/lib64/lib-imsrcsbaseimpl.so
+pro1x	IMS	vendor/lib64/lib-imsvtcore.so
+pro1x	IMS	vendor/lib64/lib-imsxml.so
+pro1x	IMS	vendor/lib64/lib-rcsconfig.so
+pro1x	IMS	vendor/lib64/lib-rtpcommon.so
+pro1x	IMS	vendor/lib64/lib-rtpcore.so
+pro1x	IMS	vendor/lib64/lib-rtpsl.so
+pro1x	IMS	vendor/lib64/lib-siputility.so
+pro1x	IMS	vendor/lib64/lib-uceservice.so
+pro1x	IMS	vendor/lib64/librcc.so
+pro1x	IMS	vendor/lib64/vendor.qti.data.mwqem@1.0.so
+pro1x	IMS	vendor/lib64/vendor.qti.hardware.mwqemadapter@1.0.so
+pro1x	IMS	vendor/lib64/vendor.qti.hardware.radio.ims@1.0.so
+pro1x	IMS	vendor/lib64/vendor.qti.hardware.radio.ims@1.1.so
+pro1x	IMS	vendor/lib64/vendor.qti.hardware.radio.ims@1.2.so
+pro1x	IMS	vendor/lib64/vendor.qti.hardware.radio.ims@1.3.so
+pro1x	IMS	vendor/lib64/vendor.qti.hardware.radio.ims@1.4.so
+pro1x	IMS	vendor/lib64/vendor.qti.hardware.radio.ims@1.5.so
+pro1x	IMS	vendor/lib64/vendor.qti.hardware.radio.ims@1.6.so
+pro1x	IMS	vendor/lib64/vendor.qti.hardware.radio.ims@1.7.so
+pro1x	IMS	vendor/lib64/vendor.qti.ims.callcapability@1.0.so
+pro1x	IMS	vendor/lib64/vendor.qti.ims.callinfo@1.0.so
+pro1x	IMS	vendor/lib64/vendor.qti.ims.factory@1.0.so
+pro1x	IMS	vendor/lib64/vendor.qti.ims.factory@1.1.so
+pro1x	IMS	vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so
+pro1x	IMS	vendor/lib64/vendor.qti.ims.rcsconfig@1.1.so
+pro1x	IMS	vendor/lib64/vendor.qti.ims.rcsconfig@2.0.so
+pro1x	IMS	vendor/lib64/vendor.qti.ims.rcsconfig@2.1.so
+pro1x	IMS	vendor/lib64/vendor.qti.imsrtpservice@3.0-service-Impl.so
+pro1x	IMS	vendor/lib64/vendor.qti.imsrtpservice@3.0.so
+pro1x	NFC	vendor/lib64/libpn557_fw.so
+pro1x	QMI	vendor/lib/libdsi_netctrl.so	(descartado tras revisar dependencias)
+pro1x	QMI	vendor/lib64/libdsi_netctrl.so	(descartado tras revisar dependencias)
+pro1x	RIL	system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
+pro1x	RIL	system_ext/etc/permissions/qcrilhook.xml
+pro1x	RIL	system_ext/etc/permissions/qti_libpermissions.xml
+pro1x	RIL	system_ext/etc/permissions/qti_permissions.xml
+pro1x	RIL	system_ext/framework/qcrilhook.jar
+pro1x	RIL	system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+pro1x	RIL	vendor/app/IWlanService/IWlanService.apk
+pro1x	RIL	vendor/bin/hw/qcrild
+pro1x	RIL	vendor/bin/adpl
+pro1x	RIL	vendor/bin/ks
+pro1x	RIL	vendor/bin/netmgrd
+pro1x	RIL	vendor/bin/pd-mapper
+pro1x	RIL	vendor/bin/port-bridge
+pro1x	RIL	vendor/bin/qrtr-ns
+pro1x	RIL	vendor/bin/qti
+pro1x	RIL	vendor/bin/rmt_storage
+pro1x	RIL	vendor/bin/ssgqmigd
+pro1x	RIL	vendor/bin/ssgtzd
+pro1x	RIL	vendor/bin/tftp_server
+pro1x	RIL	vendor/etc/data/dsi_config.xml
+pro1x	RIL	vendor/etc/data/netmgr_config.xml
+pro1x	RIL	vendor/etc/init/dataadpl.rc
+pro1x	RIL	vendor/etc/init/dataqti.rc
+pro1x	RIL	vendor/etc/init/init-qcril-data.rc
+pro1x	RIL	vendor/etc/init/netmgrd.rc
+pro1x	RIL	vendor/etc/init/port-bridge.rc
+pro1x	RIL	vendor/etc/init/qcrild.rc
+pro1x	RIL	vendor/etc/init/ssgtzd.rc
+pro1x	RIL	vendor/etc/init/vendor.qti.rmt_storage.rc
+pro1x	RIL	vendor/etc/init/vendor.qti.tftp.rc
+pro1x	RIL	vendor/etc/ssg/ta_config.json
+pro1x	RIL	vendor/etc/ssg/tz_whitelist.json
+pro1x	RIL	vendor/lib/libconfigdb.so
+pro1x	RIL	vendor/lib/libnetmgr.so
+pro1x	RIL	vendor/lib64/deviceInfoServiceModule.so
+pro1x	RIL	vendor/lib64/libconfigdb.so
+pro1x	RIL	vendor/lib64/liblqe.so
+pro1x	RIL	vendor/lib64/libmdmdetect.so
+pro1x	RIL	vendor/lib64/libnetmgr.so
+pro1x	RIL	vendor/lib64/libnetmgr_common.so
+pro1x	RIL	vendor/lib64/libnetmgr_nr_fusion.so
+pro1x	RIL	vendor/lib64/libnetmgr_rmnet_ext.so
+pro1x	RIL	vendor/lib64/libnlnetmgr.so
+pro1x	RIL	vendor/lib64/libpdmapper.so
+pro1x	RIL	vendor/lib64/libpdnotifier.so
+pro1x	RIL	vendor/lib64/libqcrilFramework.so
+pro1x	RIL	vendor/lib64/libqcrildatactl.so
+pro1x	RIL	vendor/lib64/libqsocket.so
+pro1x	RIL	vendor/lib64/libril-qc-hal-qmi.so
+pro1x	RIL	vendor/lib64/libril-qc-logger.so
+pro1x	RIL	vendor/lib64/libril-qc-ltedirectdisc.so
+pro1x	RIL	vendor/lib64/libril-qc-radioconfig.so
+pro1x	RIL	vendor/lib64/libril-qcril-hook-oem.so
+pro1x	RIL	vendor/lib64/librilqmiservices.so
+pro1x	RIL	vendor/lib64/libsettings.so
+pro1x	RIL	vendor/lib64/libsystem_health_mon.so
+pro1x	RIL	vendor/lib64/qcrild_librilutils.so
+pro1x	RIL	vendor/lib64/qtibus.so
+pro1x	RIL	vendor/lib64/qtimutex.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.am@1.0.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.internal.deviceinfo@1.0.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.lpa@1.0.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.lpa@1.1.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.lpa@1.2.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.qcrilhook@1.0.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.qtiradio@1.0.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.0.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.1.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.2.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.3.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.4.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.5.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.qtiradio@2.6.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.uim@1.0.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.uim@1.1.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.uim@1.2.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.0.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.1.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.2.so
+pro1x	RIL	vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so
+pro1x	RIL	vendor/radio/qcril_database/upgrade/0_initial.sql
+pro1x	RIL	vendor/radio/qcril_database/upgrade/10_version_update_ecc_table.sql
+pro1x	RIL	vendor/radio/qcril_database/upgrade/1_version_intro.sql
+pro1x	RIL	vendor/radio/qcril_database/upgrade/2_version_add_wps_config.sql
+pro1x	RIL	vendor/radio/qcril_database/upgrade/3_version_update_wps_config.sql
+pro1x	RIL	vendor/radio/qcril_database/upgrade/4_version_update_ecc_table.sql
+pro1x	RIL	vendor/radio/qcril_database/upgrade/5_version_update_ecc_table.sql
+pro1x	RIL	vendor/radio/qcril_database/upgrade/6_version_update_ecc_table.sql
+pro1x	RIL	vendor/radio/qcril_database/upgrade/7_version_update_ecc_table.sql
+pro1x	RIL	vendor/radio/qcril_database/upgrade/8_version_update_ecc_table.sql
+pro1x	RIL	vendor/radio/qcril_database/upgrade/9_version_update_ecc_table.sql
+pro1x	RIL	vendor/radio/qcril_database/qcril.db
+pro1x	Secure element	vendor/bin/hw/vendor.qti.secure_element@1.2-service
+pro1x	Secure element	vendor/etc/init/vendor.qti.secure_element@1.2-service.rc
+pro1x	Secure element	vendor/lib64/android.hardware.secure_element@1.0-impl.so
+pro1x	Trusted User Interface	vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
+pro1x	Trusted User Interface	vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
+pro1x	WiFi	vendor/etc/wifi/WCNSS_qcom_cfg.ini	(lo aporta el arbol)
+aospa	ANT	vendor/lib64/hw/com.dsi.ant@1.0-impl.so
+aospa	Audio	vendor/lib/libstagefright_soft_qtiflacdec.so	(descartado tras revisar dependencias)
+aospa	SDM	vendor/lib64/libsdedrm.so	(descartado tras revisar dependencias)
+aospa	IDFK	vendor/lib/libvideoutils.so
+aospa	IDFK	vendor/lib/libstreamparser.so
+
+## no existen en el firmware stock (52)
+pro1x	Camera	vendor/lib64/camera/com.qti.flash.lm3644.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.imx376.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.imx476.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.imx481.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.imx576.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.imx582.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.imx586.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.ov12a10_front.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.ov6211_master.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.ov6211_slave.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.ov8856_master.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.ov8856_slave.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.ov9282_master.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.ov9282_slave.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.s5k2x5sp.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.s5k3m5.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.s5k3p9.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.s5k4h7.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.s5k5e9yu05.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensor.s5k5e9yx04.so
+pro1x	Camera	vendor/lib64/camera/com.qti.sensormodule.lce_imx582.bin
+pro1x	Camera	vendor/lib64/camera/com.qti.sensormodule.lce_s5k4h7.bin
+pro1x	Camera	vendor/lib64/camera/com.qti.tuned.lce_imx582.bin
+pro1x	Camera	vendor/lib64/camera/com.qti.tuned.lce_s5k4h7.bin
+pro1x	Keymaster	vendor/etc/init/android.hardware.keymaster@4.1-service-qti.rc
+pro1x	Keymaster	vendor/etc/vintf/manifest/android.hardware.keymaster@4.1-service-default-qti.xml
+pro1x	Listen	vendor/lib/hw/sound_trigger.primary.bengal.so
+pro1x	Listen	vendor/lib/libcapiv2svarnn.so
+pro1x	Perf	vendor/etc/perf/commonsysnodesconfigs.xml
+pro1x	QMI	system/etc/permissions/privapp-permissions-qti.xml
+pro1x	QMI	system/etc/sysconfig/qti_whitelist.xml
+pro1x	Sensor-configs	vendor/etc/sensors/config/bengal_dynamic_sensors.json
+pro1x	Sensor-configs	vendor/etc/sensors/config/bengal_lsm6ds3c_0.json
+pro1x	Sensor-configs	vendor/etc/sensors/config/bengal_mmc56x3x_0.json
+pro1x	Sensor-configs	vendor/etc/sensors/config/bengal_txc_0.json
+pro1x	Sensor-configs	vendor/etc/sensors/config/sns_direct_channel.json
+pro1x	Sensor-configs	vendor/etc/sensors/config/txc_0.json
+pro1x	Vibrator firmware	vendor/firmware/aw8622x_haptic.bin
+pro1x	Vibrator firmware	vendor/firmware/aw8622x_osc_rtp_12K_10s.bin
+pro1x	Vibrator firmware	vendor/firmware/aw8622x_rtp.bin
+pro1x	Vibrator firmware	vendor/firmware/aw87xxx_pid_39_fm_0.bin
+pro1x	Vibrator firmware	vendor/firmware/aw87xxx_pid_39_fm_1.bin
+pro1x	Vibrator firmware	vendor/firmware/aw87xxx_pid_39_music_0.bin
+pro1x	Vibrator firmware	vendor/firmware/aw87xxx_pid_39_music_1.bin
+pro1x	Vibrator firmware	vendor/firmware/aw87xxx_pid_39_off_0.bin
+pro1x	Vibrator firmware	vendor/firmware/aw87xxx_pid_39_off_1.bin
+pro1x	Vibrator firmware	vendor/firmware/aw87xxx_pid_39_rcv_0.bin
+pro1x	Vibrator firmware	vendor/firmware/aw87xxx_pid_39_rcv_1.bin
+pro1x	Vibrator firmware	vendor/firmware/aw87xxx_pid_39_vmax_0.bin
+pro1x	Vibrator firmware	vendor/firmware/aw87xxx_pid_39_vmax_1.bin
+pro1x	Vibrator firmware	vendor/firmware/aw87xxx_pid_39_voice_0.bin
+pro1x	Vibrator firmware	vendor/firmware/aw87xxx_pid_39_voice_1.bin

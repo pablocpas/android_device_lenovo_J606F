@@ -1,0 +1,27 @@
+#
+# SPDX-FileCopyrightText: 2026 Lenovo Tab P11 (TB-J606F) native port
+# SPDX-License-Identifier: Apache-2.0
+#
+# Ajustes de rendimiento medidos sobre esta placa (bengal, 4 GB) por
+# frnikho/Lenovo_J606L_GSI (notes/journal.md). Pantalla de inicio, frames con
+# retraso: 10 % solo con boost QTI -> ~2-3 % con estos ajustes.
+# Se aplican cuando termina init.qcom.post_boot.sh, que fija los valores de
+# fabrica de Qualcomm y sobrescribiria estos si se escribieran antes.
+#
+
+on property:init.svc.qcom-post-boot=stopped
+    # WALT + schedtune: la app en primer plano prefiere nucleos rapidos y libres
+    write /dev/stune/top-app/schedtune.boost 10
+    write /dev/stune/top-app/schedtune.prefer_idle 1
+    write /dev/stune/foreground/schedtune.prefer_idle 1
+
+    # zram: leer una sola pagina por fallo (page-cluster=3 es para discos)
+    write /proc/sys/vm/page-cluster 0
+
+    # UFS: noop en lugar de cfq (lanzamiento en frio de Ajustes 1530 -> 1450 ms)
+    write /sys/block/sda/queue/scheduler noop
+    write /sys/block/sdb/queue/scheduler noop
+    write /sys/block/sdc/queue/scheduler noop
+    write /sys/block/sdd/queue/scheduler noop
+    write /sys/block/sde/queue/scheduler noop
+    write /sys/block/sdf/queue/scheduler noop

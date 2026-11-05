@@ -1,0 +1,2 @@
+# Doble toque para despertar del tactil Himax
+type vendor_proc_gesture, proc_type, fs_type;

@@ -1,0 +1,35 @@
+//
+// SPDX-FileCopyrightText: 2023 Paranoid Android
+// SPDX-License-Identifier: Apache-2.0
+//
+// HAL de amplificador para los 4x Awinic AW88258 de la J606F (de StyloGey/AOSPA),
+// adaptado al HAL de audio de LineageOS (hardware/qcom-caf/sm8250/audio).
+// Carga la calibracion de fabrica desde /mnt/vendor/persist/factory/audio/aw_cali.bin.
+//
+
+cc_library_shared {
+    name: "audio_amplifier.j606f",
+    relative_install_path: "hw",
+    vendor: true,
+    srcs: ["audio_amplifier.c"],
+    include_dirs: [
+        "hardware/qcom-caf/sm8250/audio/hal",
+        "hardware/qcom-caf/sm8250/audio/hal/audio_extn",
+        "hardware/qcom-caf/sm8250/audio/hal/msm8974",
+        "external/tinyalsa/include",
+        "external/tinycompress/include",
+        "system/media/audio_route/include",
+        "system/media/audio_utils/include",
+    ],
+    header_libs: [
+        "qti_kernel_headers",
+        "libhardware_headers",
+    ],
+    shared_libs: [
+        "audio.primary.bengal",
+        "libaudioroute",
+        "libcutils",
+        "liblog",
+        "libtinyalsa",
+    ],
+}

@@ -1,0 +1,2 @@
+# Audio: amplificadores Awinic AW88258
+type vendor_audio_amp_device, dev_type;

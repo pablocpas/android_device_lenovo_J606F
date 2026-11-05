@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+
+     Lenovo TB-J606F: sin LEDs de notificacion/bateria; solo teclas de volumen.
+-->
+<resources>
+    <bool name="config_proximityCheckOnWake">false</bool>
+    <integer name="config_deviceLightCapabilities">0</integer>
+    <!-- 64 = Volume rocker -->
+    <integer name="config_deviceHardwareKeys">64</integer>
+    <integer name="config_deviceHardwareWakeKeys">0</integer>
+    <string-array name="config_restartActionsList">
+        <item>restart</item>
+        <item>restart_recovery</item>
+        <item>restart_bootloader</item>
+        <item>restart_fastboot</item>
+    </string-array>
+</resources>
