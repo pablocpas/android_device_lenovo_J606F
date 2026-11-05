@@ -1,0 +1,27 @@
+/dts-v1/;
+/plugin/;
+
+/*
+ * Memoria para pstore: conserva el registro del kernel tras un cuelgue.
+ * La direccion queda fuera de todas las reservas del device tree de stock.
+ */
+/ {
+	fragment@0 {
+		target-path = "/reserved-memory";
+		__overlay__ {
+			ramoops@66400000 {
+				compatible = "ramoops";
+				reg = <0x0 0x66400000 0x0 0x400000>;
+				console-size = <0x200000>;
+				pmsg-size = <0x200000>;
+			};
+		};
+	};
+	fragment@1 {
+		target-path = "/soc/restart@440b000";
+		__overlay__ {
+			/* Sin reinicio en caliente, la memoria de pstore no sobrevive al cuelgue. */
+			qcom,force-warm-reboot;
+		};
+	};
+};
