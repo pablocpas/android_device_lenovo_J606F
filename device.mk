@@ -226,7 +226,15 @@ PRODUCT_ALLOWED_ANDROIDMK_FILES := \
 
 # El kernel stock tiene CONFIG_USERFAULTFD desactivado y no tiene MREMAP_DONTUNMAP.
 # Con "true", ART descartaria el dexpreopt al arrancar y lo regeneraria en la tablet.
+# El 4.19.325 tiene los dos, como exige el recolector CMC de ART.
+ifeq ($(J606F_KERNEL),4.19.325)
+PRODUCT_ENABLE_UFFD_GC := true
+# Mismo nivel de BPF que el Pro1-X con este kernel.
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.bpf.kver_override=5.10.239
+else
 PRODUCT_ENABLE_UFFD_GC := false
+endif
 
 # Lineage Health
 PRODUCT_PACKAGES += \
@@ -336,10 +344,11 @@ PRODUCT_COPY_FILES += \
 # VNDK / API: la J606F se lanzo con Android 10 (API 29)
 PRODUCT_SHIPPING_API_LEVEL := 29
 
-# Fase 1: el kernel stock 4.19.157 no alcanza el minimo de las matrices VINTF
-# (4.19.325). Solo omite la comprobacion del kernel al compilar; HAL y manifiestos
-# se siguen validando, y Android tampoco comprueba el kernel al arrancar
-# (verifyBuildAtBoot usa disableKernel). Quitar al pasar al kernel 4.19.325 (fase 2).
+# El kernel stock 4.19.157 no alcanza el minimo de las matrices VINTF (4.19.325).
+# Solo omite la comprobacion del kernel al compilar; HAL y manifiestos se siguen
+# validando, y Android tampoco comprueba el kernel al arrancar (verifyBuildAtBoot
+# usa disableKernel). Con el 4.19.325 se podria activar (lleva CONFIG_IKCONFIG), pero
+# sigue omitida hasta comprobar en una compilacion que pasa las matrices de nivel 7.
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := false
 
 # WiFi

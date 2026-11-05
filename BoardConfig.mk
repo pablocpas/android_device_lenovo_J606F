@@ -97,14 +97,25 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 # El kernel stock solo descomprime ramdisks gzip (CONFIG_RD_LZ4 no esta activo):
-# no usar BOARD_RAMDISK_USE_LZ4 mientras se use este kernel.
+# BOARD_RAMDISK_USE_LZ4 solo con el 4.19.325.
 TARGET_KERNEL_NO_GCC := true
+TARGET_FORCE_PREBUILT_KERNEL := true
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+# J606F_KERNEL=4.19.325 usa el kernel de kernel/lenovo/sm6115 empaquetado por
+# android/scripts/empaquetar_kernel_j606f.sh: DTB de stock con ramoops, y modulos
+# con los nombres de stock. Las cabeceras de los HAL salen de ese mismo arbol.
+ifeq ($(J606F_KERNEL),4.19.325)
+TARGET_KERNEL_SOURCE := kernel/lenovo/sm6115
+TARGET_KERNEL_CONFIG := vendor/bengal-perf_defconfig vendor/ext_config/j606f.config
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel-4.19.325/Image.gz
+BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/kernel-4.19.325/dtb
+BOARD_RAMDISK_USE_LZ4 := true
+else
 TARGET_KERNEL_SOURCE := kernel/msm-4.19
 TARGET_KERNEL_CONFIG := vendor/j606f_defconfig
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
-TARGET_FORCE_PREBUILT_KERNEL := true
 BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/dtb
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+endif
 
 # Media
 TARGET_USES_ION := true
