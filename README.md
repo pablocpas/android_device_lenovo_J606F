@@ -48,8 +48,9 @@ video or Venus crashes with Widevine L1. Devices on Codec2 do not use this path.
 
 ## Status
 
-Works with the stock kernel: display, touch and pen, Wi-Fi, Bluetooth, audio (4 speakers),
-both cameras, charging, sensors, Widevine L1 (with the patch above).
+Works with the stock kernel: display, touch and pen, Wi-Fi, audio, both cameras (photo),
+charging, Widevine L1 (with the patch above). Not checked yet: Bluetooth, sensors, video
+recording and flash.
 
 Kernel 4.19.325: tested only booted from RAM (`fastboot boot`). Display, touch, Wi-Fi,
 USB-C, audio and both cameras work; the ported Lenovo charging logic (cycle-based voltage
