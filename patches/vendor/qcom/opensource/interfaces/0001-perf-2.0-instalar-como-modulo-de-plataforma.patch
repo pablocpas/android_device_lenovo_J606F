@@ -1,0 +1,23 @@
+From: Pablo Caño <62502825+pablocpas@users.noreply.github.com>
+Subject: [PATCH] perf: 2.0 como modulo de plataforma
+
+services.core enlaza vendor.qti.hardware.perf-V2.0-java de forma estatica
+para enviar los hints de QtiPerfBooster. La comprobacion de configuracion
+generica de android_system_image rechaza esa dependencia si el modulo es de
+system_ext.
+
+---
+ perf/2.0/Android.bp | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/perf/2.0/Android.bp b/perf/2.0/Android.bp
+--- a/perf/2.0/Android.bp
++++ b/perf/2.0/Android.bp
+@@ -3,7 +3,6 @@
+ hidl_interface {
+     name: "vendor.qti.hardware.perf@2.0",
+     root: "vendor.qti.hardware.perf",
+-    system_ext_specific: true,
+     srcs: [
+         "IPerf.hal",
+     ],

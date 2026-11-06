@@ -1,0 +1,32 @@
+Trata como opcionales las funciones de panel (RC, SPR, demura).
+
+libsdmextension.so de Lenovo S320383 no exporta GetPanelFeatureFactoryIntf, e
+Init() devolvia ese error: "Primary display creation has failed! status = -22".
+El composer no se registraba y system_server caia por Watchdog cada ~70 s.
+La J606F no usa estas funciones. Init() devolvia ademas el ultimo error, de modo
+que incluso kErrorNotSupported impedia crear la pantalla.
+
+--- a/sdm/libs/core/display_builtin.cpp
++++ b/sdm/libs/core/display_builtin.cpp
+@@ -163,7 +163,9 @@
+ 
+ error = CreatePanelfeatures();
+   if (error != kErrorNone) {
+-    DLOGE("Failed to setup panel feature factory, error: %d", error);
++    // J606F: son opcionales, no deben impedir que se cree la pantalla.
++    DLOGW("Failed to setup panel feature factory, error: %d", error);
++    error = kErrorNone;
+   } else {
+     // Get status of RC enablement property. Default RC is disabled.
+     int rc_prop_value = 0;
+@@ -207,8 +209,8 @@
+     if (feature_impl_lib.Open(EXTENSION_LIBRARY_NAME)) {
+       if (!feature_impl_lib.Sym("GetPanelFeatureFactoryIntf",
+                                 reinterpret_cast<void **>(&GetPanelFeatureFactoryIntfFunc_))) {
+-        DLOGE("Unable to load symbols, error = %s", feature_impl_lib.Error());
+-        return kErrorUndefined;
++        DLOGW("Panel features are not supported, error = %s", feature_impl_lib.Error());
++        return kErrorNotSupported;
+       }
+     } else {
+       DLOGW("Unable to load = %s, error = %s", EXTENSION_LIBRARY_NAME, feature_impl_lib.Error());

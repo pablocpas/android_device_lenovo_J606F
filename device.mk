@@ -148,9 +148,9 @@ PRODUCT_PACKAGES += \
     init.j606f.drm.rc \
     liboemcrypto-vacio.so
 
-# Widevine: L3 mientras L1 haga caer el firmware de video (init/init.j606f.drm.rc).
-# Con J606F_WIDEVINE_L1=true se deja L1, para probarlo.
-ifneq ($(J606F_WIDEVINE_L1),true)
+# Widevine: L1 por defecto (funciona con patches/frameworks/av). Con
+# J606F_WIDEVINE_L3=true se fuerza L3 (init/init.j606f.drm.rc).
+ifeq ($(J606F_WIDEVINE_L3),true)
 PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.j606f.widevine_l3=true
 endif

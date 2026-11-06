@@ -1,0 +1,20 @@
+No aborta system_server por las etiquetas de bpffs en kernels anteriores a 5.10.
+
+verifyClatPerms() exige fs_bpf_net_shared, pero en este kernel 4.19 todos los pines
+son fs_bpf y bpffs no admite chcon. system_server caia cada ~7 s al cargar
+libservice-connectivity. Adaptado del parche equivalente de la GSI de MisterZtr.
+
+--- a/service/jni/com_android_server_connectivity_ClatCoordinator.cpp
++++ b/service/jni/com_android_server_connectivity_ClatCoordinator.cpp
+@@ -132,6 +132,11 @@
+ 
+ #undef V2
+ 
++    // J606F: el kernel 4.19 no etiqueta bpffs (fs_bpf_*): no debe tumbar system_server.
++    if (fatal && !bpf::isAtLeastKernelVersion(5, 10, 0)) {
++        ALOGW("Kernel < 5.10 without bpffs genfscon labels: ignoring CLAT permission errors.");
++        return;
++    }
+     if (fatal) abort();
+ }
+ 

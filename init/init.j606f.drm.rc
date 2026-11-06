@@ -1,12 +1,9 @@
-# Widevine en la J606F.
+# Widevine en la J606F: forzar L3.
 #
-# Con L1, el descodificador seguro hace caer el firmware de video (Venus:
-# Err_Fatal en vfw_h264_main.c, 0xdeadbead) en la mayoria de las sesiones:
-# videos que no se ven, o con artefactos (comprobado con el kernel stock y RTVE
-# Play). Sin liboemcrypto el CDM de Widevine pasa a L3 y usa el descodificador
-# normal, que va bien.
-#
-# device.mk fija la propiedad salvo con J606F_WIDEVINE_L1=true. Se quitara
-# cuando L1 funcione (prueba-widevine).
+# L1 funciona con patches/frameworks/av (SecureBuffer conserva el rango). Sin ese
+# parche, Android 16 pasa al descodificador seguro el bufer entero y la imagen sale
+# verde, con artefactos, o Venus se cae. Para esos casos, con J606F_WIDEVINE_L3=true
+# device.mk fija la propiedad y aqui se tapa liboemcrypto: el CDM pasa a L3 y usa el
+# descodificador normal.
 on post-fs && property:ro.vendor.j606f.widevine_l3=true
     mount none /vendor/etc/drm/liboemcrypto-vacio.so /vendor/lib64/liboemcrypto.so bind

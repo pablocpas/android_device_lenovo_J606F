@@ -1,0 +1,24 @@
+posix_spawn: recurre a fcntl si close_range no existe.
+
+En kernels anteriores a 5.9, close_range devuelve ENOSYS, y con
+POSIX_SPAWN_CLOEXEC_DEFAULT el hijo terminaba con _exit(127) sin avisar. Lo usan
+TetherController (dnsmasq) y ClatCoordinator (clatd).
+
+--- a/libc/bionic/spawn.cpp
++++ b/libc/bionic/spawn.cpp
+@@ -154,7 +154,14 @@
+ 
+   if ((flags & POSIX_SPAWN_CLOEXEC_DEFAULT) != 0) {
+     // mark all open fds except stdin/out/err as close-on-exec
+-    if (close_range(3, ~0U, CLOSE_RANGE_CLOEXEC)) _exit(127);
++    if (close_range(3, ~0U, CLOSE_RANGE_CLOEXEC)) {
++      // J606F: close_range no existe en kernels anteriores a 5.9.
++      if (errno != ENOSYS) _exit(127);
++      rlimit limit;
++      if (getrlimit(RLIMIT_NOFILE, &limit)) _exit(127);
++      const rlim_t max_fd = limit.rlim_cur < 65536 ? limit.rlim_cur : 65536;
++      for (rlim_t fd = 3; fd < max_fd; ++fd) fcntl(fd, F_SETFD, FD_CLOEXEC);
++    }
+   }
+ }
+ 

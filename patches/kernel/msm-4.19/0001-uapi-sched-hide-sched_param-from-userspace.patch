@@ -1,0 +1,23 @@
+Oculta struct sched_param de las cabeceras UAPI instaladas.
+
+bionic define su propio struct sched_param en <sched.h> e incluye
+<linux/sched/types.h>, igual que hacen las cabeceras UAPI de Linux modernas, que
+ya no lo definen. Las de este kernel 4.19 lo definen y provocan
+"redefinition of 'sched_param'" en todo modulo que use generated_kernel_includes.
+headers_install.sh ejecuta unifdef -U__KERNEL__, asi que el bloque desaparece de
+las cabeceras instaladas y el kernel sigue viendo la definicion.
+
+--- a/include/uapi/linux/sched/types.h
++++ b/include/uapi/linux/sched/types.h
+@@ -4,9 +4,11 @@
+
+ #include <linux/types.h>
+
++#ifdef __KERNEL__
+ struct sched_param {
+ 	int sched_priority;
+ };
++#endif
+
+ #define SCHED_ATTR_SIZE_VER0	48	/* sizeof first published struct */
+ #define SCHED_ATTR_SIZE_VER1	56	/* add: util_{min,max} */

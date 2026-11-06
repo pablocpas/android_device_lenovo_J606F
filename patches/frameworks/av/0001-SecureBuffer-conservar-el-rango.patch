@@ -1,0 +1,70 @@
+diff --git a/media/libstagefright/BufferImpl.cpp b/media/libstagefright/BufferImpl.cpp
+index b097324..5247083 100644
+--- a/media/libstagefright/BufferImpl.cpp
++++ b/media/libstagefright/BufferImpl.cpp
+@@ -48,15 +48,28 @@ SharedMemoryBuffer::SharedMemoryBuffer(const sp<AMessage> &format, const sp<TMem
+ // SecureBuffer
+ 
+ SecureBuffer::SecureBuffer(const sp<AMessage> &format, const void *ptr, size_t size)
+-    : MediaCodecBuffer(format, new ABuffer(nullptr, size)),
+-      mPointer(ptr) {
++    : SecureBuffer(format, ptr, nullptr, new ABuffer(nullptr, size)) {
+ }
+ 
+ SecureBuffer::SecureBuffer(
+         const sp<AMessage> &format, const sp<NativeHandle> &handle, size_t size)
+-    : MediaCodecBuffer(format, new ABuffer(nullptr, size)),
+-      mPointer(nullptr),
+-      mHandle(handle) {
++    : SecureBuffer(format, nullptr, handle, new ABuffer(nullptr, size)) {
++}
++
++SecureBuffer::SecureBuffer(const sp<AMessage> &format, const void *ptr,
++        const sp<NativeHandle> &handle, const sp<ABuffer> &range)
++    : MediaCodecBuffer(format, range),
++      mPointer(ptr),
++      mHandle(handle),
++      mRange(range) {
++}
++
++status_t SecureBuffer::setRange(size_t offset, size_t size) {
++    if (offset > capacity() || size > capacity() - offset) {
++        return BAD_VALUE;
++    }
++    mRange->setRange(offset, size);
++    return OK;
+ }
+ 
+ void *SecureBuffer::getDestinationPointer() {
+diff --git a/media/libstagefright/include/SecureBuffer.h b/media/libstagefright/include/SecureBuffer.h
+index c45e0e5..d899066 100644
+--- a/media/libstagefright/include/SecureBuffer.h
++++ b/media/libstagefright/include/SecureBuffer.h
+@@ -20,6 +20,7 @@
+ 
+ #include <mediadrm/ICrypto.h>
+ #include <media/MediaCodecBuffer.h>
++#include <media/stagefright/foundation/ABuffer.h>
+ 
+ namespace android {
+ 
+@@ -42,11 +43,19 @@ public:
+     void *getDestinationPointer();
+     ICrypto::DestinationType getDestinationType();
+ 
++    // El bufer seguro no tiene datos visibles (su ABuffer no tiene memoria) y
++    // ABuffer::setRangeWithStatus() rechaza el rango en ese caso: el tamano de los
++    // datos descifrados se perdia y el descodificador recibia el bufer entero.
++    status_t setRange(size_t offset, size_t size) override;
++
+ private:
+     SecureBuffer() = delete;
++    SecureBuffer(const sp<AMessage> &format, const void *ptr,
++            const sp<NativeHandle> &handle, const sp<ABuffer> &range);
+ 
+     const void *mPointer;
+     const sp<NativeHandle> mHandle;
++    const sp<ABuffer> mRange;
+ };
+ 
+ }  // namespace android

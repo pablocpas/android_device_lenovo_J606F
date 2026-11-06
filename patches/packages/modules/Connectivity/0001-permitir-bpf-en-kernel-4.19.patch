@@ -1,0 +1,35 @@
+Permite cargar BPF en un kernel 4.19 con Android 16.
+
+NetBpfLoad y netd terminan con error en Android 25Q2 o superior si el kernel es
+anterior a 5.4, lo que provoca el bucle reboot,bpfloader-failed. El modulo sigue
+incluyendo programas y mapas para 4.19. Fingir 5.4 con ro.bpf.kver_override no
+sirve: se pide DEVMAP_HASH, que este kernel no tiene (errno 22 en tether_dev_map).
+
+--- a/bpf/loader/NetBpfLoad.cpp
++++ b/bpf/loader/NetBpfLoad.cpp
+@@ -1626,9 +1626,9 @@
+ 
+     // 25Q2 bumps the kernel requirement up to 5.4
+     // see also: //system/netd/tests/kernel_test.cpp TestKernel54
++    // J606F: el kernel es 4.19 y este modulo conserva programas para esa version.
+     if (isAtLeast25Q2 && !isAtLeastKernelVersion(5, 4)) {
+-        ALOGE("Android 25Q2 requires kernel 5.4.");
+-        return 6;
++        ALOGW("Android 25Q2 requires kernel 5.4: continuing on this older kernel.");
+     }
+ 
+     // 25Q4 bumps the kernel requirement up to 5.10
+--- a/bpf/netd/BpfHandler.cpp
++++ b/bpf/netd/BpfHandler.cpp
+@@ -101,10 +101,7 @@
+         return Status("V+ platform with kernel version < 4.19.0 is unsupported");
+     }
+ 
+-    // 25Q2 bumps the kernel requirement up to 5.4
+-    if (isAtLeast25Q2 && !isAtLeastKernelVersion(5, 4)) {
+-        return Status("25Q2+ platform with kernel version < 5.4.0 is unsupported");
+-    }
++    // J606F: 25Q2 exige 5.4, pero el kernel es 4.19 y los programas siguen siendo validos.
+ 
+     unique_fd cg_fd(open(cg2_path, O_DIRECTORY | O_RDONLY | O_CLOEXEC));
+     if (!cg_fd.ok()) return statusFromErrno(errno, "Opening cgroup dir failed");
