@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copy to .repo/local_manifests/j606f.xml on top of LineageOS lineage-23.2 -->
+<manifest>
+  <remote name="pablocpas" fetch="https://github.com/pablocpas" />
+
+  <project path="device/lenovo/J606F" name="android_device_lenovo_J606F"
+           remote="pablocpas" revision="lineage-23.2" />
+  <project path="vendor/lenovo/J606F" name="proprietary_vendor_lenovo_J606F"
+           remote="pablocpas" revision="lineage-23.2" />
+  <project path="kernel/lenovo/sm6115" name="android_kernel_lenovo_sm6115"
+           remote="pablocpas" revision="j606f-4.19.325" clone-depth="1" />
+</manifest>
