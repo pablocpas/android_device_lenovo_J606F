@@ -144,7 +144,16 @@ PRODUCT_COPY_FILES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-    android.hardware.drm-service.clearkey
+    android.hardware.drm-service.clearkey \
+    init.j606f.drm.rc \
+    liboemcrypto-vacio.so
+
+# Widevine: L3 mientras L1 haga caer el firmware de video (init/init.j606f.drm.rc).
+# Con J606F_WIDEVINE_L1=true se deja L1, para probarlo.
+ifneq ($(J606F_WIDEVINE_L1),true)
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.vendor.j606f.widevine_l3=true
+endif
 
 # fastbootd
 PRODUCT_PACKAGES += \

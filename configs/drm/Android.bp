@@ -1,0 +1,11 @@
+//
+// Fichero vacio que tapa liboemcrypto.so para forzar Widevine L3 con el
+// kernel stock. Ver init/init.j606f.drm.rc.
+//
+
+prebuilt_etc {
+    name: "liboemcrypto-vacio.so",
+    src: "liboemcrypto-vacio.so",
+    sub_dir: "drm",
+    vendor: true,
+}

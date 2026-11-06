@@ -1,1 +1,4 @@
 allow init vendor_sysfs_graphics:file rw_file_perms;
+
+# Widevine L3 con el kernel stock: init tapa liboemcrypto.so (init.j606f.drm.rc)
+allow init vendor_file:file mounton;

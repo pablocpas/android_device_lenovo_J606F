@@ -82,3 +82,10 @@ sh_binary {
     src: "init.qcom.sh",
     vendor: true,
 }
+
+prebuilt_etc {
+    name: "init.j606f.drm.rc",
+    src: "init.j606f.drm.rc",
+    sub_dir: "init",
+    vendor: true,
+}
