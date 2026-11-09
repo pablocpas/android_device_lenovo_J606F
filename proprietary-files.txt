@@ -422,7 +422,9 @@ vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
-# Graphics (Adreno firmware)
+# Graphics (Adreno firmware) - a630_sqe.fw: microcodigo 0x016ee197, el que acompana al
+# V@0757 en spes (identico al del Pro1-X, que lo usa con este mismo kernel). Lenovo
+# traia 0x016ee195. a610_zap va firmado: es el de Lenovo.
 vendor/firmware/a610_zap.b00
 vendor/firmware/a610_zap.b01
 vendor/firmware/a610_zap.b02
