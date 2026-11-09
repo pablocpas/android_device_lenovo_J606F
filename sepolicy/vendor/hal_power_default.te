@@ -1,2 +1,5 @@
 # Doble toque para despertar (power/power-mode.cpp)
 allow hal_power_default vendor_proc_gesture:file rw_file_perms;
+
+# libperfmgr: /dev/cpu_dma_latency (PMQoSCpuDmaLatency), el arreglo del lag
+allow hal_power_default vendor_latency_device:chr_file rw_file_perms;

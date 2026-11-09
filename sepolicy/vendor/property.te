@@ -1,0 +1,2 @@
+# ro.vendor.bt.bdaddr_path, que fija el HAL de Bluetooth
+vendor_internal_prop(vendor_bt_addr_prop)

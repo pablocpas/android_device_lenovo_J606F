@@ -9,7 +9,11 @@
 # fabrica de Qualcomm y sobrescribiria estos si se escribieran antes.
 #
 
-on property:init.svc.qcom-post-boot=stopped
+# vendor_init no puede leer init.svc.*: post_boot pone vendor.post_boot.parsed al terminar.
+on property:vendor.post_boot.parsed=1
+    # libperfmgr empieza a procesar hints cuando post_boot ha fijado frecuencias y planificador
+    setprop vendor.powerhal.init 1
+
     # WALT + schedtune: la app en primer plano prefiere nucleos rapidos y libres
     write /dev/stune/top-app/schedtune.boost 10
     write /dev/stune/top-app/schedtune.prefer_idle 1

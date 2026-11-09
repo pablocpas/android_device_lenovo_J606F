@@ -1,0 +1,4 @@
+# Una libreria de camara recorre todas las propiedades al arrancar: ruido, sin permiso
+dontaudit hal_camera_default property_type:file { getattr map open read };
+allow hal_camera_default vendor_sysfs_kgsl:dir search;
+allow hal_camera_default vendor_sysfs_kgsl:file r_file_perms;

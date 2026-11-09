@@ -283,16 +283,24 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# Power: HAL QTI abierto + powerhint de bengal. Usa el perf HAL de Qualcomm
-# (vendor.qti.hardware.perf@2.2) para los boosts de toque, lanzamiento y
-# animacion que una GSI no puede usar (ver docs/PLAN_ROM_NATIVA.md, seccion 5).
+# Power: libperfmgr de LineageOS con configs/powerhint.json, medido en la tablet:
+# 0,7-1,3 % de fotogramas perdidos frente a 4-7 % con el HAL QTI, con el mismo consumo.
+# La clave es PMQoSCpuDmaLatency ("44" = 68 us en hexadecimal): impide el power collapse
+# de los nucleos entre fotogramas. El HAL de rendimiento cerrado
+# (vendor.qti.hardware.perf@2.2) se mantiene: lo usan la camara y QtiPerfBooster.
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti
+    android.hardware.power-service.lineage-libperfmgr
 
-$(call soong_config_set,qtipower,mode_ext_lib,//$(LOCAL_PATH)/power:libpowermode-ext-j606f)
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/google/interfaces \
+    hardware/google/pixel \
+    hardware/lineage/interfaces/power-libperfmgr
+
+# Doble toque para despertar: la misma extension que usaba el HAL QTI
+$(call soong_config_set,power_libperfmgr,mode_extension_lib,//$(LOCAL_PATH)/power:libpowermode-ext-j606f)
 
 PRODUCT_COPY_FILES += \
-    vendor/qcom/opensource/power/config/bengal/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+    $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
@@ -348,7 +356,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/tablet_core_hardware.xml
 
-# Vibrator: la J606F no tiene motor de vibracion (no se incluye HAL)
+# Vibrator: motor ERM en el LDO del pmi632 (/sys/class/leds/vibrator), a 2,4 V por DT.
+# patches/vendor/qcom/opensource/vibrator anade el control de intensidad.
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.vibrator.service
 
 # VNDK / API: la J606F se lanzo con Android 10 (API 29)
 PRODUCT_SHIPPING_API_LEVEL := 29

@@ -32,3 +32,6 @@ genfscon sysfs /devices/virtual/misc/msm_wmapro/wakeup57                        
 
 # Extcon (dock pogo)
 genfscon sysfs /devices/platform/soc/soc:dock_pogo/extcon   u:object_r:sysfs_extcon:s0
+
+# Medidor de bateria mm8013 (hal_health)
+genfscon sysfs /devices/platform/soc/4a80000.i2c/i2c-0/0-0055/power_supply/mm8013    u:object_r:sysfs_batteryinfo:s0

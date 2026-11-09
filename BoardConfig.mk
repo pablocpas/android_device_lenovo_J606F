@@ -100,7 +100,6 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 # BOARD_RAMDISK_USE_LZ4 solo con el 4.19.325.
 TARGET_KERNEL_NO_GCC := true
 TARGET_FORCE_PREBUILT_KERNEL := true
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 # J606F_KERNEL=4.19.325 usa el kernel de kernel/lenovo/sm6115 empaquetado por
 # android/scripts/empaquetar_kernel_j606f.sh: DTB de stock con ramoops, y modulos
 # con los nombres de stock. Las cabeceras de los HAL salen de ese mismo arbol.
@@ -109,8 +108,11 @@ TARGET_KERNEL_SOURCE := kernel/lenovo/sm6115
 TARGET_KERNEL_CONFIG := vendor/bengal-perf_defconfig vendor/ext_config/j606f.config
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel-4.19.325/Image.gz
 BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilt/kernel-4.19.325/dtb
+# dtbo de stock con el brillo minimo del panel a 33/4095 (prebuilt/dtbo-ajustes.py)
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo-4.19.325.img
 BOARD_RAMDISK_USE_LZ4 := true
 else
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 TARGET_KERNEL_SOURCE := kernel/msm-4.19
 TARGET_KERNEL_CONFIG := vendor/j606f_defconfig
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
@@ -160,6 +162,7 @@ VENDOR_SECURITY_PATCH := 2024-05-05
 
 # SEPolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk
+include device/lineage/sepolicy/libperfmgr/sepolicy.mk
 include $(DEVICE_PATH)/sepolicy/SEPolicy.mk
 
 # Verified Boot

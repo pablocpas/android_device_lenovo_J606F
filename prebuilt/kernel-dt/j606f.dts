@@ -1,0 +1,35 @@
+/dts-v1/;
+/plugin/;
+
+/*
+ * Ajustes de la J606F sobre la base bengalp del DTB de stock, para el kernel 4.19.325.
+ * fragment@0/1: memoria para pstore (conserva el registro del kernel tras un cuelgue;
+ * la direccion queda fuera de todas las reservas del device tree de stock).
+ * fragment@2: vibrador a 2,4 V (stock 3,0 V: demasiado fuerte).
+ */
+/ {
+	fragment@0 {
+		target-path = "/reserved-memory";
+		__overlay__ {
+			ramoops@66400000 {
+				compatible = "ramoops";
+				reg = <0x0 0x66400000 0x0 0x400000>;
+				console-size = <0x200000>;
+				pmsg-size = <0x200000>;
+			};
+		};
+	};
+	fragment@1 {
+		target-path = "/soc/restart@440b000";
+		__overlay__ {
+			/* Sin reinicio en caliente, la memoria de pstore no sobrevive al cuelgue. */
+			qcom,force-warm-reboot;
+		};
+	};
+	fragment@2 {
+		target-path = "/soc/qcom,spmi@1c40000/qcom,pmi632@3/qcom,vibrator@5700";
+		__overlay__ {
+			qcom,vib-ldo-volt-uv = <2400000>;
+		};
+	};
+};

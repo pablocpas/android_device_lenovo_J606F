@@ -1,0 +1,2 @@
+# Un script sh abre "/" al arrancar
+dontaudit vendor_wcnss_service rootfs:dir r_dir_perms;
