@@ -76,6 +76,10 @@ on early-boot
     start vendor.sensors
 
 on boot
+    # Vibrador: el HAL (usuario system) escribe la intensidad en vmax_mv
+    chown system system /sys/class/leds/vibrator/vmax_mv
+    chmod 0664 /sys/class/leds/vibrator/vmax_mv
+
 #USB controller configuration
     setprop vendor.usb.rndis.func.name "gsi"
     setprop vendor.usb.rmnet.func.name "gsi"

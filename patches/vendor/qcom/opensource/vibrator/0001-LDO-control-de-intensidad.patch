@@ -1,5 +1,5 @@
 diff --git a/aidl/VibratorOL/Vibrator.cpp b/aidl/VibratorOL/Vibrator.cpp
-index a5c58e1..15b3688 100644
+index a5c58e1..d3af34a 100644
 --- a/aidl/VibratorOL/Vibrator.cpp
 +++ b/aidl/VibratorOL/Vibrator.cpp
 @@ -28,6 +28,7 @@
@@ -10,7 +10,7 @@ index a5c58e1..15b3688 100644
  #include <cutils/properties.h>
  #include <dirent.h>
  #include <inttypes.h>
-@@ -411,6 +412,59 @@ LedVibratorDevice::LedVibratorDevice() {
+@@ -411,6 +412,58 @@ LedVibratorDevice::LedVibratorDevice() {
  
      snprintf(devicename, sizeof(devicename), "%s/%s", LED_DEVICE, "device/driver");
      mIsLdo = realpath(devicename, devicename) && strstr(devicename, "/qcom,qpnp-vibrator-ldo");
@@ -58,8 +58,7 @@ index a5c58e1..15b3688 100644
 +    if (!mIsLdo || mVmaxMv <= kLdoMinMv)
 +        return -EINVAL;
 +
-+    mMuted = amplitude < kMinAmplitude;
-+    if (mMuted)
++    if (amplitude < kMinAmplitude)
 +        return off();
 +
 +    int mv = kLdoMinMv + (int)(amplitude * (mVmaxMv - kLdoMinMv));
@@ -70,17 +69,19 @@ index a5c58e1..15b3688 100644
  }
  
  int LedVibratorDevice::write_value(const char *file, const char *value) {
-@@ -447,6 +501,9 @@ int LedVibratorDevice::on(int32_t timeoutMs) {
+@@ -447,6 +500,11 @@ int LedVibratorDevice::on(int32_t timeoutMs) {
      char value[32];
      int ret;
  
-+    if (mMuted)
-+        return 0;
-+
++    /*
++     * Siempre se enciende: Android llama a on() antes de setAmplitude(), y un toque
++     * silenciado haria perder la vibracion fuerte siguiente. Si la amplitud nueva
++     * es demasiado baja, setAmplitude() apaga el motor enseguida.
++     */
      snprintf(file, sizeof(file), "%s/%s", LED_DEVICE, "state");
      ret = write_value(file, "1");
      if (ret < 0)
-@@ -566,6 +623,8 @@ ndk::ScopedAStatus VibratorOL::getCapabilities(int32_t* _aidl_return) {
+@@ -566,6 +624,8 @@ ndk::ScopedAStatus VibratorOL::getCapabilities(int32_t* _aidl_return) {
      *_aidl_return = IVibrator::CAP_ON_CALLBACK;
  
      if (ledVib.mDetected) {
@@ -89,7 +90,7 @@ index a5c58e1..15b3688 100644
          ALOGD("QTI Vibrator reporting capabilities: %d", *_aidl_return);
          return ndk::ScopedAStatus::ok();
      }
-@@ -722,8 +781,15 @@ ndk::ScopedAStatus VibratorOL::setAmplitude(float amplitude) {
+@@ -722,8 +782,15 @@ ndk::ScopedAStatus VibratorOL::setAmplitude(float amplitude) {
      uint8_t tmp;
      int ret;
  
@@ -108,10 +109,10 @@ index a5c58e1..15b3688 100644
      if (!ff.mSupportGain)
          return ndk::ScopedAStatus(AStatus_fromExceptionCode(EX_UNSUPPORTED_OPERATION));
 diff --git a/aidl/VibratorOL/Vibrator.h b/aidl/VibratorOL/Vibrator.h
-index 1a4f22a..454ab99 100644
+index 1a4f22a..000bf18 100644
 --- a/aidl/VibratorOL/Vibrator.h
 +++ b/aidl/VibratorOL/Vibrator.h
-@@ -93,10 +93,14 @@ public:
+@@ -93,10 +93,13 @@ public:
      LedVibratorDevice();
      int on(int32_t timeoutMs);
      int off();
@@ -120,9 +121,8 @@ index 1a4f22a..454ab99 100644
      bool mIsLdo;
  private:
      int write_value(const char *file, const char *value);
-+    /* LDO: voltaje maximo del DT (amplitud 1.0) y vibraciones demasiado suaves */
++    /* LDO: voltaje maximo del DT (amplitud 1.0) */
 +    int mVmaxMv = 0;
-+    bool mMuted = false;
  };
  
  class VibratorOL : public BnVibrator {
