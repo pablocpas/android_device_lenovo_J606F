@@ -8,6 +8,3 @@
 # SSR
 /sys/devices/platform/soc/5ab0000\.qcom,venus/subsys[0-9]+/name            u:object_r:vendor_sysfs_ssr:s0
 /sys/devices/platform/soc/5ab0000\.qcom,venus/subsys[0-9]+/restart_level   u:object_r:vendor_sysfs_ssr_toggle:s0
-
-# Adreno V@0757: libllvm-qgl la cargan las apps (como libllvm-glnext, en sm8450)
-/vendor/lib(64)?/libllvm-qgl\.so                                           u:object_r:same_process_hal_file:s0

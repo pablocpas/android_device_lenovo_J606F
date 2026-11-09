@@ -422,9 +422,7 @@ vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
-# Graphics (Adreno firmware) - a630_sqe.fw: microcodigo 0x016ee197, el que acompana al
-# V@0757 en spes (identico al del Pro1-X, que lo usa con este mismo kernel). Lenovo
-# traia 0x016ee195. a610_zap va firmado: es el de Lenovo.
+# Graphics (Adreno firmware)
 vendor/firmware/a610_zap.b00
 vendor/firmware/a610_zap.b01
 vendor/firmware/a610_zap.b02
@@ -432,10 +430,8 @@ vendor/firmware/a610_zap.elf
 vendor/firmware/a610_zap.mdt
 vendor/firmware/a630_sqe.fw
 
-# Graphics (Adreno) - V@0757.0 (12/12/23) de crdroidandroid/android_vendor_xiaomi_spes,
-# rama 16.0 ("from v757 by tryigit"): misma A610 y kernel 4.19. Salvo
-# libadreno_app_profiles.so, que es la de Lenovo (V@0502): la del V@0757 necesita el
-# QSPM AIDL, que este vendor no tiene. El firmware (a610_zap, a630_sqe) es el de Lenovo.
+# Graphics (Adreno) - V@0502 de Lenovo. El V@0757 (crDroid spes) se probo: mas extensiones
+# de GL y Vulkan, pero BitmapUpload un 58 % mas lento (UiBench). Se queda este.
 vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
@@ -452,7 +448,6 @@ vendor/lib/libc2d30_bltlib.so
 vendor/lib/libgpudataproducer.so
 vendor/lib/libgsl.so
 vendor/lib/libllvm-glnext.so
-vendor/lib/libllvm-qgl.so
 vendor/lib/libllvm-qcom.so
 vendor/lib64/egl/eglSubDriverAndroid.so
 vendor/lib64/egl/libEGL_adreno.so
@@ -470,7 +465,6 @@ vendor/lib64/libc2d30_bltlib.so
 vendor/lib64/libgpudataproducer.so
 vendor/lib64/libgsl.so
 vendor/lib64/libllvm-glnext.so
-vendor/lib64/libllvm-qgl.so
 vendor/lib64/libllvm-qcom.so
 
 # Graphics (Vulkan)
