@@ -6,6 +6,11 @@
  * fragment@0/1: memoria para pstore (conserva el registro del kernel tras un cuelgue;
  * la direccion queda fuera de todas las reservas del device tree de stock).
  * fragment@2: vibrador a 2,4 V (stock 3,0 V: demasiado fuerte).
+ * fragment@3-5: zonas termicas de la placa de referencia sin termistor en la J606F
+ * (pa-therm0 -40 C, camera-therm -33 C, emmc-ufs-therm 81 C, falsas). Solo las veian
+ * apps como DevCheck: thermal-engine (configuracion interna de bengal, con quiet-therm
+ * y xo-therm-usr) y el HAL termico (CPU y xo-therm-usr) no las usan, y solo tenian un
+ * disparo pasivo a 125 C sin refrigeracion. adc-tm deja un aviso por canal al arrancar.
  */
 / {
 	fragment@0 {
@@ -30,6 +35,24 @@
 		target-path = "/soc/qcom,spmi@1c40000/qcom,pmi632@3/qcom,vibrator@5700";
 		__overlay__ {
 			qcom,vib-ldo-volt-uv = <2400000>;
+		};
+	};
+	fragment@3 {
+		target-path = "/soc/thermal-zones/pa-therm0-usr";
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+	fragment@4 {
+		target-path = "/soc/thermal-zones/camera-therm-usr";
+		__overlay__ {
+			status = "disabled";
+		};
+	};
+	fragment@5 {
+		target-path = "/soc/thermal-zones/emmc-ufs-therm-usr";
+		__overlay__ {
+			status = "disabled";
 		};
 	};
 };

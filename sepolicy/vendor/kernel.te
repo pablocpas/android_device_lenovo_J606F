@@ -1,5 +1,5 @@
 dontaudit kernel mnt_vendor_file:dir search;
 
-# Calibracion de los amplificadores desde /mnt/vendor/persist
-allow kernel mnt_vendor_file:dir search;
-allow kernel vendor_persist_audio_file:file r_file_perms;
+# La calibracion de los amplificadores la lee audio_amplifier.j606f, no el kernel:
+# darle acceso a persist esta prohibido (neverallow). El intento del driver se silencia.
+dontaudit kernel vendor_persist_audio_file:file r_file_perms;
