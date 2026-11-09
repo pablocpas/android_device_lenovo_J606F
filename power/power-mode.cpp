@@ -15,11 +15,13 @@
 
 using ::aidl::android::hardware::power::Mode;
 
+// Espacio de nombres de libperfmgr (hardware/lineage/interfaces/power-libperfmgr)
 namespace aidl {
-namespace android {
+namespace google {
 namespace hardware {
 namespace power {
 namespace impl {
+namespace pixel {
 
 // Nodos conocidos; la variante con panel Novatek NT36523W queda por confirmar.
 static constexpr const char* kTapToWakeNodes[] = {
@@ -57,8 +59,9 @@ bool setDeviceSpecificMode(Mode type, bool enabled) {
     }
 }
 
+}  // namespace pixel
 }  // namespace impl
 }  // namespace power
 }  // namespace hardware
-}  // namespace android
+}  // namespace google
 }  // namespace aidl
